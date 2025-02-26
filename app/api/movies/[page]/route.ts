@@ -16,7 +16,8 @@ export async function GET(
   request: Request,
   { params }: { params: { page: string } },
 ) {
-  const pageNum = parseInt(params.page, 10) || 1;
+  const { page } = await Promise.resolve(params);
+  const pageNum = parseInt(page, 10) || 1;
 
   try {
     const res = await fetch(

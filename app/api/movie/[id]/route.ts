@@ -16,7 +16,8 @@ export async function GET(
   request: Request,
   { params }: { params: { id: string } },
 ) {
-  const movieId = parseInt(params.id, 10);
+  const { id } = await Promise.resolve(params);
+  const movieId = parseInt(id, 10);
   try {
     const res = await fetch(
       `${BASE_URL}movie/${movieId}?language=en-US`,
