@@ -1,5 +1,3 @@
-// app/api/movies/[page]/route.ts
-
 import { NextResponse } from "next/server";
 import { NowPlayingResponse } from "@/app/lib/definitions";
 
@@ -16,7 +14,7 @@ const GET_CONFIG = {
 
 export async function GET(
   request: Request,
-  { params }: { params: Record<string, string> },
+  { params }: { params: { page: string } },
 ) {
   const pageNum = parseInt(params.page, 10) || 1;
 

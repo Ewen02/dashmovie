@@ -14,7 +14,7 @@ const GET_CONFIG = {
 
 export async function GET(
   request: Request,
-  { params }: { params: Record<string, string> },
+  { params }: { params: { id: string } },
 ) {
   const movieId = parseInt(params.id, 10);
   try {
