@@ -16,11 +16,9 @@ const GET_CONFIG = {
 
 export async function GET(
   request: Request,
-  { params }: { params: { page: string } },
+  { params }: { params: Record<string, string> },
 ) {
-  // Attendre que params soit résolu avant d'accéder à ses propriétés
-  const { page } = await Promise.resolve(params);
-  const pageNum = parseInt(page, 10) || 1;
+  const pageNum = parseInt(params.page, 10) || 1;
 
   try {
     const res = await fetch(
